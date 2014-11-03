@@ -13,7 +13,8 @@ module NewRelicRabbitMQPlugin
     agent_version ::NewRelicRabbitMQPlugin::VERSION
     agent_config_options :name, :uri
     agent_human_labels("RabbitMQ") do
-      name || "#{host}:#{port}"
+      u = ::URI.parse(uri)
+      name || "#{u.host}:#{u.port}"
     end
 
     def setup_metrics
