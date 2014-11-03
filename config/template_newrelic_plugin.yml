@@ -26,5 +26,5 @@ newrelic:
 agents:
   # this is where configuration for agents belongs
   rabbitmq:
-    uri: http://example.com:15672 # RabbitMQ managament URI
+  - uri: http://example.com:15672 # RabbitMQ managament URI
     name: Production RabbitMQ # Name that will show up in NewRelic
