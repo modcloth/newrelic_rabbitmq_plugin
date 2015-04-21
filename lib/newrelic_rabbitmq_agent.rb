@@ -41,12 +41,12 @@ module NewRelicRabbitMQPlugin
         report_metric "Objects/#{key.capitalize}", key, value
       end
 
-      report_metric "Messages/Publish", "Messages/Second", @messages_published.process(statistics.fetch("message_stats").fetch("publish"))
-      report_metric "Messages/Ack", "Messages/Second", @messages_acked.process(statistics.fetch("message_stats").fetch("ack"))
-      report_metric "Messages/Deliver", "Messages/Second", @messages_delivered.process(statistics.fetch("message_stats").fetch("deliver_get"))
-      report_metric "Messages/Confirm", "Messages/Second", @messages_confirmed.process(statistics.fetch("message_stats").fetch("confirm"))
-      report_metric "Messages/Redeliver", "Messages/Second", @messages_redelivered.process(statistics.fetch("message_stats").fetch("redeliver"))
-      report_metric "Messages/NoAck", "Messages/Second", @messages_noacked.process(statistics.fetch("message_stats").fetch("get_no_ack"))
+      report_metric "Messages/Publish", "Messages/Second", @messages_published.process(statistics.fetch("message_stats")["publish"])
+      report_metric "Messages/Ack", "Messages/Second", @messages_acked.process(statistics.fetch("message_stats")["ack"])
+      report_metric "Messages/Deliver", "Messages/Second", @messages_delivered.process(statistics.fetch("message_stats")["deliver_get"])
+      report_metric "Messages/Confirm", "Messages/Second", @messages_confirmed.process(statistics.fetch("message_stats")["confirm"])
+      report_metric "Messages/Redeliver", "Messages/Second", @messages_redelivered.process(statistics.fetch("message_stats")["redeliver"])
+      report_metric "Messages/NoAck", "Messages/Second", @messages_noacked.process(statistics.fetch("message_stats")["get_no_ack"])
 
       response = conn.get("/api/nodes")
       statistics = response.body
