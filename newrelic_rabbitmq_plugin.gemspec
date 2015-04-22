@@ -1,8 +1,4 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'newrelic_rabbitmq_agent'
-
 Gem::Specification.new do |s|
   s.specification_version = 2 if s.respond_to? :specification_version=
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -10,7 +6,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.9.3'
 
   s.name              = 'newrelic_rabbitmq_plugin'
-  s.version           = NewRelicRabbitMQPlugin::VERSION
+  s.version           = File.read('./VERSION').chomp
   s.license           = 'MIT'
 
   s.summary     = "New Relic plugin for reporting RabbitMQ statistics"

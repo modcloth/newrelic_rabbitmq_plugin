@@ -6,7 +6,7 @@ require "faraday"
 require "faraday_middleware"
 
 module NewRelicRabbitMQPlugin
-  VERSION = '1.0.3'
+  VERSION = File.read(File.expand_path('../../VERSION', __FILE__)).chomp
 
   class Agent < NewRelic::Plugin::Agent::Base
     agent_guid "com.modcloth.newrelic_plugin.rabbitmq"
